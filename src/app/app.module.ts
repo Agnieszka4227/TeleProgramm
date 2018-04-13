@@ -11,10 +11,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DetailPage } from '../pages/detail/detail';
-//import { MessageServiceProvider } from '../providers/message-service/message-service';
 import { HttpModule } from '@angular/http'
 import { HttpClientModule } from '@angular/common/http'
-import { RedditDataProvider } from '../providers/reddit-data/reddit-data';
 
 @NgModule({
   declarations: [
@@ -43,8 +41,7 @@ import { RedditDataProvider } from '../providers/reddit-data/reddit-data';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RedditDataProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
