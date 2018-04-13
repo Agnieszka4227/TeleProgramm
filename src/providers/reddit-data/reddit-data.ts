@@ -1,23 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { HttpModule } from '@angular/http'
-import { HttpClientModule } from '@angular/common/http'
 import 'rxjs/add/operator/map';
 
 /*
-  Generated class for the MessageServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
+  Because it is simple use of http connection I am using it directrly from home page.
+  I have added this part of program to show that we also can use Provider to http connection
 */
 @Injectable()
 export class RedditDataProvider {
 
   private url: string = 'https://api.themoviedb.org/3/movie/upcoming?api_key=26d2e04dc0ef383471b348b5ca6e6c44&language=en-US&page=1';
 
-  constructor(public httpService: Http) {
-    this.http=httpService;
+  constructor(public http: Http, public results) {
+    this.http=http;
+    this.results=results;
   }
 
   getRemoteData(){

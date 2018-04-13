@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DetailPage } from '../detail/detail';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { HttpModule } from '@angular/http'
-import { HttpClientModule } from '@angular/common/http'
 
 @Component({
   selector: 'page-home',
@@ -14,12 +10,11 @@ import { HttpClientModule } from '@angular/common/http'
 export class HomePage {
 
   private url: string = 'https://api.themoviedb.org/3/movie/now_playing?page=1&language=en-US&api_key=26d2e04dc0ef383471b348b5ca6e6c44';
-
+  results: any[];
   constructor(public navCtrl: NavController, private httpService: Http) {
     this.httpService=httpService;
     this.navCtrl=navCtrl;
     this.results=[];
-    this.results=this.getComponents();
   }
 
   getComponents(){
@@ -32,5 +27,9 @@ export class HomePage {
     this.navCtrl.push(DetailPage,{
       item: item
     })
+  }
+
+  ionViewDidLoad(){
+    this.getComponents();
   }
 }
